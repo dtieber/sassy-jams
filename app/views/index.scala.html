@@ -1,5 +1,19 @@
-@()
+@(artists: List[model.Artist])
 
-@main("Welcome to Play") {
-  <h1>Welcome to Play!</h1>
+@main("Sassy Jams") {
+  <h2>Artists you might like:</h2>
+
+  <div id="artists">
+    @for(a <- artists) {
+      <div class="card" style="width: 400px; margin-bottom: 40px; float:left; margin-right:35px;">
+        <div style="width:396px; height:400px; background-image:url('@a.avatar'); background-position: center; background-size: cover;"></div>
+        <div class="card-body">
+          <h4 class="card-title">@a.name</h4>
+          <h5 class="card-subtitle">@a.genre</h5>
+          <button>Find records</button>
+        </div>
+      </div>
+    }
+    <div style="clear:both;"></div>
+  </div>
 }
